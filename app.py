@@ -18,7 +18,6 @@ def allowed_file(filename):
 @app.route('/', methods=['GET', 'POST'])
 def upload_file():
     if request.method == 'POST':
-        # Проверяем, загружен ли файл
         if 'file' not in request.files:
             return redirect(request.url)
         file = request.files['file']
@@ -37,4 +36,6 @@ def display_image(filename):
     return render_template('index.html', filename=filename)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    # Используем порт, предоставленный Render
+    port = int(os.environ.get('PORT', 5000))  # По умолчанию 5000
+    app.run(host="0.0.0.0", port=port)
