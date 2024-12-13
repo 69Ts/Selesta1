@@ -1,0 +1,113 @@
+.spoiler-container {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    cursor: pointer;
+}
+
+.spoiler-image::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent 70%);
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    animation: ripple 3s infinite;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.spoiler-image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.spoiler-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(15px);
+    transition: filter 0.5s ease-in-out;
+}
+
+.spoiler-img.unblur {
+    filter: blur(0);
+}
+
+.hide {
+    background: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    transform-origin: var(--click-x) var(--click-y);
+    transform: scale(1);
+}
+
+.hide.clicked {
+    opacity: 0;
+    transform: scale(3);
+    pointer-events: none;
+}
+
+.dot {
+    position: absolute;
+    border-radius: 50%;
+    background: white;
+    animation: none;
+    opacity: 0.6;
+    width: 1.5px;
+    height: 1.5px;
+    transition: top 1s ease, left 1s ease, opacity 1s ease;
+}
+/* Стили формы загрузки */
+.upload-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #222;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+.upload-container h1 {
+    margin-bottom: 20px;
+}
+
+.upload-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.upload-container input[type="file"] {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.upload-container button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.upload-container button:hover {
+    background-color: #0056b3;
+}

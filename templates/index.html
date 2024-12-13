@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpoilerTelegram</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="spoiler-container" id="spoiler-container">
+            <div class="spoiler-image">
+                <img src="{{ url_for('static', filename='uploads/' ~ filename) }}" alt="Spoiler Image" class="spoiler-img">
+                <div class="hide"></div>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
